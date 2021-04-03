@@ -96,7 +96,7 @@
 		9450B85D261310A5003FA434 /* DownloadOperation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloadOperation.swift; sourceTree = "<group>"; };
 		9450B86426131220003FA434 /* QueueManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QueueManager.swift; sourceTree = "<group>"; };
 		9450B86B2613328C003FA434 /* FetchOpration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchOpration.swift; sourceTree = "<group>"; };
-		9451A2B8260DF41D00867347 /* twak.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = twak.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		9451A2B8260DF41D00867347 /* tawk.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = tawk.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9451A2BB260DF41D00867347 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9451A2BD260DF41D00867347 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		9451A2BF260DF41D00867347 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -105,10 +105,10 @@
 		9451A2C7260DF42000867347 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		9451A2CA260DF42000867347 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		9451A2CC260DF42000867347 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		9451A2D1260DF42100867347 /* twakTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = twakTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		9451A2D1260DF42100867347 /* tawkTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = tawkTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		9451A2D5260DF42100867347 /* twakTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = twakTests.swift; sourceTree = "<group>"; };
 		9451A2D7260DF42100867347 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		9451A2DC260DF42100867347 /* twakUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = twakUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		9451A2DC260DF42100867347 /* tawkUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = tawkUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		9451A2E0260DF42100867347 /* twakUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = twakUITests.swift; sourceTree = "<group>"; };
 		9451A2E2260DF42100867347 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		945A4F81260E6D5B000025A9 /* UserListVController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserListVController.swift; sourceTree = "<group>"; };
@@ -219,9 +219,9 @@
 		9451A2B9260DF41D00867347 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				9451A2B8260DF41D00867347 /* twak.app */,
-				9451A2D1260DF42100867347 /* twakTests.xctest */,
-				9451A2DC260DF42100867347 /* twakUITests.xctest */,
+				9451A2B8260DF41D00867347 /* tawk.app */,
+				9451A2D1260DF42100867347 /* tawkTests.xctest */,
+				9451A2DC260DF42100867347 /* tawkUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -279,9 +279,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		9451A2B7260DF41D00867347 /* twak */ = {
+		9451A2B7260DF41D00867347 /* tawk */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 9451A2E5260DF42100867347 /* Build configuration list for PBXNativeTarget "twak" */;
+			buildConfigurationList = 9451A2E5260DF42100867347 /* Build configuration list for PBXNativeTarget "tawk" */;
 			buildPhases = (
 				9451A2B4260DF41D00867347 /* Sources */,
 				9451A2B5260DF41D00867347 /* Frameworks */,
@@ -291,14 +291,14 @@
 			);
 			dependencies = (
 			);
-			name = twak;
+			name = tawk;
 			productName = twak;
-			productReference = 9451A2B8260DF41D00867347 /* twak.app */;
+			productReference = 9451A2B8260DF41D00867347 /* tawk.app */;
 			productType = "com.apple.product-type.application";
 		};
-		9451A2D0260DF42100867347 /* twakTests */ = {
+		9451A2D0260DF42100867347 /* tawkTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 9451A2E8260DF42100867347 /* Build configuration list for PBXNativeTarget "twakTests" */;
+			buildConfigurationList = 9451A2E8260DF42100867347 /* Build configuration list for PBXNativeTarget "tawkTests" */;
 			buildPhases = (
 				9451A2CD260DF42100867347 /* Sources */,
 				9451A2CE260DF42100867347 /* Frameworks */,
@@ -309,14 +309,14 @@
 			dependencies = (
 				9451A2D3260DF42100867347 /* PBXTargetDependency */,
 			);
-			name = twakTests;
+			name = tawkTests;
 			productName = twakTests;
-			productReference = 9451A2D1260DF42100867347 /* twakTests.xctest */;
+			productReference = 9451A2D1260DF42100867347 /* tawkTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		9451A2DB260DF42100867347 /* twakUITests */ = {
+		9451A2DB260DF42100867347 /* tawkUITests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 9451A2EB260DF42100867347 /* Build configuration list for PBXNativeTarget "twakUITests" */;
+			buildConfigurationList = 9451A2EB260DF42100867347 /* Build configuration list for PBXNativeTarget "tawkUITests" */;
 			buildPhases = (
 				9451A2D8260DF42100867347 /* Sources */,
 				9451A2D9260DF42100867347 /* Frameworks */,
@@ -327,9 +327,9 @@
 			dependencies = (
 				9451A2DE260DF42100867347 /* PBXTargetDependency */,
 			);
-			name = twakUITests;
+			name = tawkUITests;
 			productName = twakUITests;
-			productReference = 9451A2DC260DF42100867347 /* twakUITests.xctest */;
+			productReference = 9451A2DC260DF42100867347 /* tawkUITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
 		};
 /* End PBXNativeTarget section */
@@ -354,7 +354,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 9451A2B3260DF41D00867347 /* Build configuration list for PBXProject "twak" */;
+			buildConfigurationList = 9451A2B3260DF41D00867347 /* Build configuration list for PBXProject "tawk" */;
 			compatibilityVersion = "Xcode 9.3";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -367,9 +367,9 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				9451A2B7260DF41D00867347 /* twak */,
-				9451A2D0260DF42100867347 /* twakTests */,
-				9451A2DB260DF42100867347 /* twakUITests */,
+				9451A2B7260DF41D00867347 /* tawk */,
+				9451A2D0260DF42100867347 /* tawkTests */,
+				9451A2DB260DF42100867347 /* tawkUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -475,12 +475,12 @@
 /* Begin PBXTargetDependency section */
 		9451A2D3260DF42100867347 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 9451A2B7260DF41D00867347 /* twak */;
+			target = 9451A2B7260DF41D00867347 /* tawk */;
 			targetProxy = 9451A2D2260DF42100867347 /* PBXContainerItemProxy */;
 		};
 		9451A2DE260DF42100867347 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 9451A2B7260DF41D00867347 /* twak */;
+			target = 9451A2B7260DF41D00867347 /* tawk */;
 			targetProxy = 9451A2DD260DF42100867347 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -684,7 +684,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/twak.app/twak";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/tawk.app/tawk";
 			};
 			name = Debug;
 		};
@@ -705,7 +705,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/twak.app/twak";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/tawk.app/tawk";
 			};
 			name = Release;
 		};
@@ -750,7 +750,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		9451A2B3260DF41D00867347 /* Build configuration list for PBXProject "twak" */ = {
+		9451A2B3260DF41D00867347 /* Build configuration list for PBXProject "tawk" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				9451A2E3260DF42100867347 /* Debug */,
@@ -759,7 +759,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		9451A2E5260DF42100867347 /* Build configuration list for PBXNativeTarget "twak" */ = {
+		9451A2E5260DF42100867347 /* Build configuration list for PBXNativeTarget "tawk" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				9451A2E6260DF42100867347 /* Debug */,
@@ -768,7 +768,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		9451A2E8260DF42100867347 /* Build configuration list for PBXNativeTarget "twakTests" */ = {
+		9451A2E8260DF42100867347 /* Build configuration list for PBXNativeTarget "tawkTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				9451A2E9260DF42100867347 /* Debug */,
@@ -777,7 +777,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		9451A2EB260DF42100867347 /* Build configuration list for PBXNativeTarget "twakUITests" */ = {
+		9451A2EB260DF42100867347 /* Build configuration list for PBXNativeTarget "tawkUITests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				9451A2EC260DF42100867347 /* Debug */,

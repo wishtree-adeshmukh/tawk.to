@@ -6,7 +6,7 @@
 //
 
 import XCTest
-@testable import twak
+@testable import tawk
 
 class twakTests: XCTestCase {
     lazy var userlistResponse: Data = {
@@ -33,7 +33,7 @@ class twakTests: XCTestCase {
     func testSelectUser()  throws {
         // adding mock entry
         let userAry = CoreDataHandler.sharedInstance.ParseJSONToCodedataAry(data: userlistResponse)
-        let userItem = CoreDataHandler.sharedInstance.fetchUserItem(String(userAry[0].id))
+        let userItem = CoreDataHandler.sharedInstance.fetchUserItem(String(userAry[0].id), withContext: nil)
         XCTAssertNotNil(userItem, "Response data is not decoded in Coredata entity UserItem")
         XCTAssertNotNil(userItem?.id, "id should not be nil")
         XCTAssertTrue(userItem?.login == "mojombo")
@@ -63,9 +63,16 @@ class twakTests: XCTestCase {
         XCTAssertEqual(userAry.count, 1, "Response data is not decoded in Coredata entity UserItem")
         // Deleting mock entry
        CoreDataHandler.sharedInstance.deleteGitHubUser(userAry[0])
-       
     }
-
+    func testUserNoteUpdate() throws {
+        let userAry = CoreDataHandler.sharedInstance.ParseJSONToCodedataAry(data: userlistResponse)
+        let userItem = CoreDataHandler.sharedInstance.fetchUserItem(String(userAry[0].id), withContext: nil)
+        userItem?.note = "test note added"
+        CoreDataHandler.sharedInstance.saveContext(context:(userItem?.managedObjectContext)!)
+        let updatedUserItem = CoreDataHandler.sharedInstance.fetchUserItem(String(userAry[0].id), withContext: nil)
+        XCTAssertEqual(updatedUserItem?.note, "test note added", "Note is not updated")
+        CoreDataHandler.sharedInstance.deleteGitHubUser(updatedUserItem!) 
+    }
     func testPerformanceExample() throws {
         // This is an example of a performance test case.
         self.measure {

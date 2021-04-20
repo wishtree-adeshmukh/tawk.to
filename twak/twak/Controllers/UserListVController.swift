@@ -11,6 +11,7 @@ class UserListVController: UIViewController {
     
     @IBOutlet weak var userTable: UITableView!
     
+    @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var noNetworkView: UIView!
     @IBOutlet weak var noNetworkMsgLbl: UILabel!
     
@@ -24,13 +25,19 @@ class UserListVController: UIViewController {
                                                name: .Online,
                                                object: nil
         )
-        userTable.register(UserCell.self, forCellReuseIdentifier: "UserCell")
+        userTable.register(UserCell.self, forCellReuseIdentifier:userListViewModel.cellReuseIdentifier())
         userTable.estimatedRowHeight = 100.0
         //userTable.rowHeight = 70
     }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        userListViewModel.loadUser()
+        if (searchBar.text?.isEmpty ?? true) {
+            userListViewModel.loadUser()
+        } else {
+            userListViewModel.searchUser(searchTxt: searchBar.text!)
+            (userTable.tableFooterView as! UILabel).text  = userListViewModel.numberOfRows() > 0 ? "" :  "No results found"
+        }
+       
         self.view.endEditing(true)
     }
     
@@ -138,13 +145,13 @@ extension UserListVController : UITableViewDataSource, UITableViewDelegate{
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell : UserCell = tableView.dequeueReusableCell(withIdentifier: "UserCell", for: indexPath) as! UserCell
+        let cell  = tableView.dequeueReusableCell(withIdentifier:userListViewModel.cellReuseIdentifier(), for: indexPath)
         
         if let userModel = userListViewModel.userAt(index: indexPath.row){
-            cell.initCellUI(with: userModel, androwIndex: indexPath.row)
+            (cell as! UserCellDelegate).initCellUI(with: userModel, androwIndex: indexPath.row)
         }
         else {
-            cell.startShimmering()
+            (cell as! UserCellDelegate).startShimmering()
         }
         return cell
     }

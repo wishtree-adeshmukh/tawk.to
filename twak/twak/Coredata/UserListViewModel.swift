@@ -19,6 +19,9 @@ class UserListViewModel : NSObject {
     var isLoading = false
     var isSearch = false
     var localEntriesEnd = false
+    func cellReuseIdentifier() -> String {
+        return "UserCell"
+    }
     func loadUser() {
         isSearch = false
         localEntriesEnd = false
@@ -97,7 +100,7 @@ class UserListViewModel : NSObject {
     
     func searchUser(searchTxt:String) {
         isSearch = true
-        userAry = CoreDataHandler.sharedInstance.searchUsers(searchTxt)
+        userAry = CoreDataHandler.sharedInstance.searchUsersWithText(searchTxt, withContext: nil)
         listDelegate?.loadTable(usersAry:userAry!)
     }
 }

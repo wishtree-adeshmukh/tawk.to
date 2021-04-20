@@ -13,7 +13,7 @@
         <!--User List-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController title="User List" id="BYZ-38-t0r" customClass="UserListVController" customModule="twak" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="User List" id="BYZ-38-t0r" customClass="UserListVController" customModule="tawk" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -85,6 +85,7 @@
                     <connections>
                         <outlet property="noNetworkMsgLbl" destination="MUf-tq-s5F" id="Vw8-ro-2zp"/>
                         <outlet property="noNetworkView" destination="VJD-DP-0aT" id="4B5-Px-Zof"/>
+                        <outlet property="searchBar" destination="npk-mR-ro0" id="0Ie-gE-FbR"/>
                         <outlet property="userTable" destination="kSP-ca-cwy" id="gUc-Me-lfj"/>
                         <segue destination="bHU-95-Ymz" kind="show" identifier="userDetails" id="plM-m7-rRl"/>
                     </connections>
@@ -117,7 +118,7 @@
         <!--UserDetails-->
         <scene sceneID="hfc-KD-ho5">
             <objects>
-                <viewController storyboardIdentifier="ViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="bHU-95-Ymz" customClass="ViewController" customModule="twak" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="bHU-95-Ymz" customClass="ViewController" customModule="tawk" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="G51-Rf-MQO">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>

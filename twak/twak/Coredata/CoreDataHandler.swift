@@ -57,19 +57,18 @@ class CoreDataHandler: NSObject {
         }
     }
     
-    func searchUsers(_ text: String) -> Array<UserItem>?{
-        let context = persistentContainer.viewContext
+    func searchUsersWithText(_ text: String, withContext context: NSManagedObjectContext? ) -> Array<UserItem>?{
+        let context = context ??  managedObjectContext
         var users : Array<UserItem>?
         let fetchRequest = UserItem.fetchRequest()
         fetchRequest.predicate = NSPredicate(format: " login CONTAINS[cd] %@ OR note CONTAINS[cd] %@", text, text)
         fetchRequest.sortDescriptors = [NSSortDescriptor(key: "id", ascending: true)]
-        //        fetchRequest.returnsObjectsAsFaults = false
         users = try? (context.fetch(fetchRequest) as! Array<UserItem>)
         return users
     }
     
     func fetchUserItems()-> Array<UserItem> {
-        let context = persistentContainer.viewContext
+        let context = managedObjectContext
         var users : Array<UserItem>?
         let fetchRequest = UserItem.fetchRequest()
         fetchRequest.fetchLimit = 20
@@ -79,8 +78,8 @@ class CoreDataHandler: NSObject {
         return users ?? []
         
     }
-    func fetchUserItem(_ id: String) -> UserItem?{
-        let context = persistentContainer.viewContext
+    func fetchUserItem(_ id: String, withContext context: NSManagedObjectContext?) -> UserItem?{
+        let context =  context ?? managedObjectContext
         var user : UserItem?
         let fetchRequest = UserItem.fetchRequest()
         fetchRequest.predicate = NSPredicate(format: "id == %@", id)
@@ -93,7 +92,7 @@ class CoreDataHandler: NSObject {
         return user
     }
     func fetchNextUserItem(lastItemId: Int)-> Array<UserItem> {
-        let context = persistentContainer.viewContext
+        let context = managedObjectContext
         var users : Array<UserItem>?
         let fetchRequest = UserItem.fetchRequest()
         fetchRequest.fetchLimit = 20
@@ -109,8 +108,8 @@ class CoreDataHandler: NSObject {
             result in
             switch result {
             case .success(let data):
+                let ary = self.ParseJSONToCodedataAry(data: data)
                 DispatchQueue.main.async {
-                    let ary = self.ParseJSONToCodedataAry(data: data)
                     completion(ary)
                 }
             case .failure(_):
@@ -130,8 +129,8 @@ class CoreDataHandler: NSObject {
             result in
             switch result {
             case .success(let data):
+                let ary = self.parseJSONToCodedataObject(data: data)
                 DispatchQueue.main.async {
-                    let ary = self.parseJSONToCodedataObject(data: data)
                     completion(ary)
                 }
             case .failure(_):
@@ -170,15 +169,16 @@ class CoreDataHandler: NSObject {
         var userItem : UserItem?
         do {
             let result = try JSONSerialization.jsonObject(with: data, options: .allowFragments) as! Dictionary<String, Any>
-            userItem = fetchUserItem((result["id"] as AnyObject).stringValue)
+            userItem = fetchUserItem((result["id"] as AnyObject).stringValue, withContext: nil)
             userItem!.is_viewed = true
             userItem?.blog = result["blog"] as? String
             userItem?.company = result["company"] as? String
             userItem?.followers = result["followers"] as? NSNumber
             userItem?.following = result["following"] as? NSNumber
             print(result)
-            
-            CoreDataHandler.sharedInstance.saveContext(context: userItem?.managedObjectContext ?? CoreDataHandler.sharedInstance.managedObjectContext)
+            NSManagedObjectContext.mergeChanges(fromRemoteContextSave:[NSUpdatedObjectsKey : [userItem!.objectID]],
+                                                                   into: [CoreDataHandler.sharedInstance.writeContext])
+            CoreDataHandler.sharedInstance.saveContext(context: userItem?.managedObjectContext ?? CoreDataHandler.sharedInstance.writeContext)
         } catch let error {
             print("decoding error: \(error)")
         }

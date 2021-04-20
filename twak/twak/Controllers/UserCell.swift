@@ -8,6 +8,11 @@
 import UIKit
 
 
+protocol UserCellDelegate {
+    func initCellUI(with user: UserViewModel, androwIndex rowIndex: Int)
+    func startShimmering()
+    func stopShimmering()
+}
 class UserCell: UITableViewCell {
     
     let noteImg : UIImageView = {
@@ -117,6 +122,15 @@ class UserCell: UITableViewCell {
         // Initialization code
     }
     
+  
+    override func setSelected(_ selected: Bool, animated: Bool) {
+        super.setSelected(selected, animated: animated)
+        
+        // Configure the view for the selected state
+    }
+    
+}
+extension UserCell :UserCellDelegate {
     func startShimmering() {
         imagView.startShimmeringEffect()
         nameLbl.startShimmeringEffect()
@@ -136,12 +150,6 @@ class UserCell: UITableViewCell {
         imagView.startShimmeringEffect()
         userViewModel?.getProfileImage()
     }
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-        
-        // Configure the view for the selected state
-    }
-    
 }
 extension UserCell :UserImageDelegets {
     func imageDownloaded(_ imgData: Data, forUser userLogin: String) {
@@ -158,8 +166,17 @@ extension UserCell :UserImageDelegets {
         }
     }
     
-    
     func imageDownloadFiled(_ msg: String) {
         
+    }
+}
+class noteUserCell : UserCell {
+    override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
+        super.init(style: style, reuseIdentifier: reuseIdentifier)
+        
+    }
+    
+    required public init?(coder: NSCoder) {
+        super.init(coder: coder)
     }
 }

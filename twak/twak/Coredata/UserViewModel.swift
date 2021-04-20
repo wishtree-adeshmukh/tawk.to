@@ -20,7 +20,7 @@ class UserViewModel: NSObject {
     weak var userDelegats : UserDetailDelegets?
     weak var userImageDelegets : UserImageDelegets?
     init(_ id : String) {
-        userItem = CoreDataHandler.sharedInstance.fetchUserItem(id)!
+        userItem = CoreDataHandler.sharedInstance.fetchUserItem(id, withContext: nil)!
     }
     init(with user : UserItem) {
         userItem = user
@@ -63,7 +63,7 @@ class UserViewModel: NSObject {
     
     func saveNote(note: String) {
         self.userItem.note = note
-        CoreDataHandler.sharedInstance.saveContext(context: userItem.managedObjectContext!)
+        CoreDataHandler.sharedInstance.saveContext(context: CoreDataHandler.sharedInstance.managedObjectContext)
         self.userDelegats?.noteUpdated()
     }
 }
